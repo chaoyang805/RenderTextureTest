@@ -30,17 +30,15 @@ function preload() {
 function create() {
   let width = 1600;
   let height = 1200;
+  // The world bounds is set bigger than game size so that camera scrolling is possible.
   this.impact.world.setBounds(0, 0, width, height, 10);
   console.log('create')
+  // Create a renderTexture bigger than game size
   renderTexture = this.add.renderTexture(0, 0, width, height);
   renderTexture.fill(0x00f0f0);
+  // Draw a bunch of objects along X axis.
   for (let i = 0; i < 100; i++) {
     renderTexture.draw('avatar', i * 60, 0);
-  }
-  let anotherOne = this.add.renderTexture(800, 0, width, height);
-  anotherOne.fill(0xffee00);
-  for (let i = 0; i < 100; i++) {
-    anotherOne.draw('avatar', i * 60, 60);
   }
   cursors = this.input.keyboard.createCursorKeys();
 }
